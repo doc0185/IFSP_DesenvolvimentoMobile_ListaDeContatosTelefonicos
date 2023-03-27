@@ -9,7 +9,7 @@
 
 
     <Spinner
-        android:id="@+id/spinner_contatos"
+        android:id="@+id/spinner_contatosC"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"  />
 
     <TextView
-        android:id="@+id/textview_nomeContato"
+        android:id="@+id/textview_nomeContatoC"
         android:layout_marginTop="60dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,10 +26,10 @@
         android:hint="@string/nome_do_contato"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_contatos" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner_contatosC" />
 
     <TextView
-        android:id="@+id/textview_telefone"
+        android:id="@+id/textview_telefoneC"
         android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,10 +37,10 @@
         android:hint="@string/telefone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_nomeContato" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_nomeContatoC" />
 
     <Button
-        android:id="@+id/button_novoContato"
+        android:id="@+id/button_novoContatoC"
         android:layout_marginBottom="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -11,7 +11,6 @@ public class Usuario {
     public Usuario(String username, String senha){
         this.username = username;
         this.senha = senha;
-        contatos = new ArrayList<>();
     }
 
     public String getUsername() {

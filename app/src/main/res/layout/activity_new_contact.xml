@@ -8,7 +8,7 @@
     tools:context=".View.NewContactActivity">
 
     <EditText
-        android:id="@+id/textview_apelido"
+        android:id="@+id/textview_apelidoNC"
         android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,27 +18,27 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/textview_nome"
+        android:id="@+id/textview_nomeNC"
         android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/nome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_apelido" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_apelidoNC" />
 
     <EditText
-        android:id="@+id/textview_telefone"
+        android:id="@+id/textview_telefoneNC"
         android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/telefone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_nome" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_nomeNC" />
 
     <Button
-        android:id="@+id/button_novoUsuario"
+        android:id="@+id/button_SalvarNC"
         android:layout_marginBottom="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

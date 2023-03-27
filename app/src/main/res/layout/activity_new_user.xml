@@ -10,7 +10,7 @@
 
 
     <EditText
-        android:id="@+id/edittext_user"
+        android:id="@+id/edittext_userNU"
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,28 +20,28 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edittext_senha"
+        android:id="@+id/edittext_senhaNU"
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/senha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edittext_user" />
+        app:layout_constraintTop_toBottomOf="@+id/edittext_userNU" />
 
     <EditText
-        android:id="@+id/edittext_senhaConf"
+        android:id="@+id/edittext_senhaConfNU"
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/confirmar_senha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edittext_senha" />
+        app:layout_constraintTop_toBottomOf="@+id/edittext_senhaNU" />
 
 
     <Button
-        android:id="@+id/button_novoUsuario"
+        android:id="@+id/button_SalvarNU"
         android:layout_marginBottom="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
