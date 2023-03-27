@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">App7_ListaContatos</string>
+    <string name="usuario">Usuário</string>
+    <string name="senha">Senha</string>
+    <string name="login">Login</string>
+    <string name="novo_usuario">Novo Usuário</string>
+    <string name="confirmar_senha">Confirmar Senha</string>
+    <string name="salvar">Salvar</string>
+    <string name="nome_do_contato">Nome do Contato</string>
+    <string name="telefone">Telefone</string>
+    <string name="novo_contato">Novo Contato</string>
+    <string name="apelido">Apelido</string>
+    <string name="nome">Nome</string>
 </resources>
