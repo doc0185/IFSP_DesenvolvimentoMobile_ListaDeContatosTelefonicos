@@ -13,28 +13,28 @@
         android:theme="@style/Theme.App7_ListaContatos"
         tools:targetApi="31">
         <activity
-            android:name=".NewContactActivity"
+            android:name=".View.NewContactActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ContactsActivity"
+            android:name=".View.ContactsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".NewUserActivity"
+            android:name=".View.NewUserActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".View.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

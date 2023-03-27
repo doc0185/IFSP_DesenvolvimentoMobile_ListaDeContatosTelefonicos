@@ -1,14 +1,16 @@
-package br.edu.ifsp.dmos5;
+package br.edu.ifsp.dmos5.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import br.edu.ifsp.dmos5.R;
+
+public class NewContactActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_new_contact);
     }
 }
