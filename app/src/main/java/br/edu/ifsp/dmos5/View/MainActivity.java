@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import br.edu.ifsp.dmos5.DAO.UsuarioDAO;
 import br.edu.ifsp.dmos5.DAO.UsuarioDAOImpl;
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private String readEditText(EditText et){
+
         String etS = et.getText().toString();
 
         return etS;
@@ -62,12 +64,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String user = readEditText(userEditText);
         String passw = readEditText(passwEditText);
 
+        if(user.matches("") || passw.matches("")){
+            Toast.makeText(this, R.string.dadosVazions, Toast.LENGTH_LONG).show();
+            return;
+        }
+
         Bundle bundle = new Bundle();
         bundle.putString("user", user);
         bundle.putString("passw", passw);
 
         Intent intent = new Intent(this, ContactsActivity.class);
         intent.putExtras(bundle);
+        startActivity(intent);
     }
 
     private void openNewUser(){
