@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">App7_ListaContatos</string>
+    <string name="app_name">Lista de Contatos Telefônicos</string>
     <string name="usuario">Usuário</string>
     <string name="senha">Senha</string>
     <string name="login">Login</string>
@@ -11,4 +11,8 @@
     <string name="novo_contato">Novo Contato</string>
     <string name="apelido">Apelido</string>
     <string name="nome">Nome</string>
+
+    <string name="passwNotEqual">Senhas não são idênticas</string>
+    <string name="userCreated">Usuário Criado com Sucesso!</string>
+    <string name="userAlreadyCreated">Usuário já existe</string>
 </resources>

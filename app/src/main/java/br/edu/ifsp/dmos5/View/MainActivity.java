@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import br.edu.ifsp.dmos5.DAO.UsuarioDAO;
+import br.edu.ifsp.dmos5.DAO.UsuarioDAOImpl;
 import br.edu.ifsp.dmos5.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -17,10 +19,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button loginButton;
     private Button newUserButton;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        UsuarioDAOImpl.getInstance();
+
+        findById();
+        setClickListener();
     }
 
     private void findById(){
@@ -30,10 +37,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         newUserButton = findViewById(R.id.button_novoUsuarioM);
     }
 
+    private void setClickListener() {
+        loginButton.setOnClickListener(this);
+        newUserButton.setOnClickListener(this);
+    }
+
     @Override
     public void onClick(View v) {
         if (v== newUserButton){
             openNewUser();
+        }
+        if (v== loginButton){
+            openContacts();
         }
     }
 
@@ -43,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return etS;
     }
 
-    private void openNewUser(){
+    private void openContacts(){
         String user = readEditText(userEditText);
         String passw = readEditText(passwEditText);
 
@@ -51,8 +66,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bundle.putString("user", user);
         bundle.putString("passw", passw);
 
-        Intent intent = new Intent(this, NewUserActivity.class);
+        Intent intent = new Intent(this, ContactsActivity.class);
         intent.putExtras(bundle);
+    }
+
+    private void openNewUser(){
+
+        Intent intent = new Intent(this, NewUserActivity.class);
         startActivity(intent);
     }
 }

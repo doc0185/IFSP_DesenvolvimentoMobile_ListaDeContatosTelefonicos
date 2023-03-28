@@ -9,6 +9,7 @@ public class Usuario {
     private List<Contato> contatos;
 
     public Usuario(String username, String senha){
+        contatos = new ArrayList<>();
         this.username = username;
         this.senha = senha;
     }
@@ -28,4 +29,10 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    public void addContato(Contato contato){
+        contatos.add(contato);
+    }
+
+
 }
