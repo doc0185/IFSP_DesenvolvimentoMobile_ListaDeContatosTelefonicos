@@ -9,6 +9,8 @@ import br.edu.ifsp.dmos5.Model.Usuario;
 public interface UsuarioDAO {
     int addUsuario(Usuario usuario);
 
+    Usuario checkUserPassw(String username, String passw);
+
     void addContato(Usuario usuario, Contato contato);
     Usuario findByUsername(String nome);
     List<Usuario> findAll();

@@ -15,5 +15,6 @@
     <string name="passwNotEqual">Senhas não são idênticas</string>
     <string name="userCreated">Usuário Criado com Sucesso!</string>
     <string name="userAlreadyCreated">Usuário já existe</string>
-    <string name="dadosVazions">Algum dado não foi preenchido</string>
+    <string name="emptyData">Algum dado não foi preenchido</string>
+    <string name="userNotFound">Usuário/Senha inválido</string>
 </resources>

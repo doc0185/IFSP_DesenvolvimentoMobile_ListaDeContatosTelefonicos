@@ -75,7 +75,7 @@ public class NewUserActivity extends AppCompatActivity implements View.OnClickLi
         String passwC = readEditText(passwCEditText);
 
         if(username.matches("") || passw.matches("") || passwC.matches("")){
-            Toast.makeText(this, R.string.dadosVazions, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.emptyData, Toast.LENGTH_LONG).show();
             return;
         }
 

@@ -63,12 +63,24 @@ public class UsuarioDAOImpl implements UsuarioDAO{
             database = new ArrayList<>();
         }
         for (Usuario user : database){
-            if (username == user.getUsername()){
+            if (Objects.equals(username, user.getUsername())){
                 return user;
             }
         }
         return null;
 
+    }
+
+    public Usuario checkUserPassw(String username, String passw){
+        if (database == null){
+            database = new ArrayList<>();
+        }
+        for (Usuario user: database){
+            if (Objects.equals(username, user.getUsername()) && Objects.equals(passw, user.getSenha())){
+                return user;
+            }
+        }
+        return null;
     }
 
     @Override
