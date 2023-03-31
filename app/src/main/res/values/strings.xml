@@ -17,4 +17,5 @@
     <string name="userAlreadyCreated">Usuário já existe</string>
     <string name="emptyData">Algum dado não foi preenchido</string>
     <string name="userNotFound">Usuário/Senha inválido</string>
+    <string name="contactSaved">Contato salvo com Sucesso!</string>
 </resources>

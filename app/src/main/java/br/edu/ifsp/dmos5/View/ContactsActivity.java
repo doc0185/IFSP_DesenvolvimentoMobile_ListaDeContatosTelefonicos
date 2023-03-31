@@ -3,6 +3,7 @@ package br.edu.ifsp.dmos5.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -35,6 +36,8 @@ public class ContactsActivity extends AppCompatActivity implements View.OnClickL
         checkPassw(UsuarioDAOImpl.getInstance());
 
         findById();
+        setClickListener();
+
     }
 
     private void findById(){
@@ -46,6 +49,14 @@ public class ContactsActivity extends AppCompatActivity implements View.OnClickL
 
     private void setClickListener() {
         novoContatoButton.setOnClickListener(this);
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        if (v == novoContatoButton){
+            saveNewContato(UsuarioDAOImpl.getInstance());
+        }
     }
 
     @Override
@@ -60,6 +71,18 @@ public class ContactsActivity extends AppCompatActivity implements View.OnClickL
             finish();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void saveNewContato(UsuarioDAO uDAO){
+        Bundle bundle = getIntent().getExtras();
+        String user = bundle.getString("user");
+
+        Bundle bundle2 = new Bundle();
+        bundle2.putString("user", user);
+
+        Intent intent = new Intent(this, NewContactActivity.class);
+        intent.putExtras(bundle2);
+        startActivity(intent);
     }
 
     private Usuario checkPassw(UsuarioDAO uDAO){
@@ -77,8 +100,4 @@ public class ContactsActivity extends AppCompatActivity implements View.OnClickL
         return null;
     }
 
-    @Override
-    public void onClick(View view) {
-
-    }
 }

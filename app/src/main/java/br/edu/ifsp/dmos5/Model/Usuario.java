@@ -34,5 +34,14 @@ public class Usuario {
         contatos.add(contato);
     }
 
-
+    public String getContato(){
+        String dados = null;
+        for (Contato contato : contatos){
+            contato.getApelido();
+            contato.getNome();
+            contato.getTelefone();
+            dados +=  ' ' + contato.getApelido() + ' ' + contato.getNome() + ' ' + contato.getTelefone() + ' ';
+        }
+        return dados;
+    }
 }
