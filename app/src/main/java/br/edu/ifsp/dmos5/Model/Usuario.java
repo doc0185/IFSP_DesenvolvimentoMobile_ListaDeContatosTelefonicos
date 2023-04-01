@@ -2,6 +2,7 @@ package br.edu.ifsp.dmos5.Model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Usuario {
     private String username;
@@ -30,20 +31,33 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public void addContato(Contato contato){
-        contatos.add(contato);
+    public int addContato(Contato contato){
+
+        if(contatos.size() == 2){
+            contatos.add(contato);
+            return 1;
+        } else{
+            for(Contato contact : contatos){
+                if(contact != null){
+                    if(Objects.equals(contact.getApelido(), contato.getApelido())){
+                        return 0;
+                    }
+                }
+            }
+            contatos.add(contato);
+        }
+        return 1;
     }
+
 
     public String getContato(){
         String dados = null;
         int i = 0;
         for (Contato contato : contatos){
-            if (i==0){
-                dados =  ' ' + contato.getApelido() + ' ' + contato.getNome() + ' ' + contato.getTelefone() + ' ';
-            } else{
+            if(contato != null){
                 dados +=  ' ' + contato.getApelido() + ' ' + contato.getNome() + ' ' + contato.getTelefone() + ' ';
             }
-            i++;
+
         }
         return dados;
     }

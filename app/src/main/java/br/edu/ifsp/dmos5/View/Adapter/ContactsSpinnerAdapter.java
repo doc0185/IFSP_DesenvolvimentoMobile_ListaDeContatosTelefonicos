@@ -41,11 +41,11 @@ public class ContactsSpinnerAdapter extends ArrayAdapter<Contato> {
         if (getItem(position)==null){
             textView.setText("");
         } else{
-            textView.setText(getItem(position).getApelido());
+            textView.setText(String.format("Apelido: %s\nNome: %s", getItem(position).getApelido(), getItem(position).getNome()));
         }
 
 
-        textView.setPadding(8, 8, 8, 8);
+        //textView.setPadding(8, 8, 8, 8);
         return textView;
     }
 }

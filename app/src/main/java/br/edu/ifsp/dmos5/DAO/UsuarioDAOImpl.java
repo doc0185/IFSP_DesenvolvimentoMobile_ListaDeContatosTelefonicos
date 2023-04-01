@@ -39,21 +39,24 @@ public class UsuarioDAOImpl implements UsuarioDAO{
             }
 
             database.add(usuario);
-            int i = 0;
-            Log.d("myTag", "usario" + database.get(i).getUsername());
-            i++;
+
+            //Log.d("myTag", "usario" + database.get(i).getUsername());
+
             return 1;
         }
         return 0;
     }
 
-    public void addContato(Usuario user, Contato contato){
+    public int addContato(Usuario user, Contato contato){
             for (Usuario usuario: database){
                 if (usuario == user){
-                    user.addContato(contato);
+
+                    if(user.addContato(contato) == 1){
+                        return 1;
+                    };
                 }
             }
-
+            return 0;
 
     }
 

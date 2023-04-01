@@ -11,7 +11,7 @@ public interface UsuarioDAO {
 
     Usuario checkUserPassw(String username, String passw);
 
-    void addContato(Usuario usuario, Contato contato);
+    int addContato(Usuario usuario, Contato contato);
     Usuario findByUsername(String nome);
     List<Usuario> findAll();
 }

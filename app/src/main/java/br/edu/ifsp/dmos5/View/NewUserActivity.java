@@ -69,7 +69,7 @@ public class NewUserActivity extends AppCompatActivity implements View.OnClickLi
         return super.onOptionsItemSelected(item);
     }
 
-    public void saveNewUser(UsuarioDAO uDAO){
+    public void saveNewUser(UsuarioDAOImpl uDAO){
         String username = readEditText(userEditText);
         String passw = readEditText(passwEditText);
         String passwC = readEditText(passwCEditText);

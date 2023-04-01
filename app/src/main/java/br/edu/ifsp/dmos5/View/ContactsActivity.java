@@ -96,7 +96,7 @@ public class ContactsActivity extends AppCompatActivity implements AdapterView.O
         return super.onOptionsItemSelected(item);
     }
 
-    public void saveNewContato(UsuarioDAO uDAO){
+    public void saveNewContato(UsuarioDAOImpl uDAO){
         Bundle bundle = getIntent().getExtras();
         String user = bundle.getString("user");
 
@@ -108,7 +108,7 @@ public class ContactsActivity extends AppCompatActivity implements AdapterView.O
         startActivity(intent);
     }
 
-    private Usuario checkPassw(UsuarioDAO uDAO){
+    private Usuario checkPassw(UsuarioDAOImpl uDAO){
         Bundle bundle = getIntent().getExtras();
         if (bundle != null){
             String user = bundle.getString("user");
@@ -123,7 +123,7 @@ public class ContactsActivity extends AppCompatActivity implements AdapterView.O
         return null;
     }
 
-    private void populateSpinner(UsuarioDAO uDAO){
+    private void populateSpinner(UsuarioDAOImpl uDAO){
         Bundle bundle = getIntent().getExtras();
         String user = bundle.getString("user");
         List<Contato> dataset = uDAO.findByUsername(user).findAll();
