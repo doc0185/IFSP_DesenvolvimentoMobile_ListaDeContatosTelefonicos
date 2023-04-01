@@ -8,17 +8,22 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 import br.edu.ifsp.dmos5.DAO.UsuarioDAO;
 import br.edu.ifsp.dmos5.DAO.UsuarioDAOImpl;
+import br.edu.ifsp.dmos5.Model.Contato;
 import br.edu.ifsp.dmos5.Model.Usuario;
 import br.edu.ifsp.dmos5.R;
+import br.edu.ifsp.dmos5.View.Adapter.ContactsSpinnerAdapter;
 
-public class ContactsActivity extends AppCompatActivity implements View.OnClickListener{
+public class ContactsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener{
 
     private Spinner contatosSpinner;
     private TextView nomeContatoTextView;
@@ -36,7 +41,11 @@ public class ContactsActivity extends AppCompatActivity implements View.OnClickL
         checkPassw(UsuarioDAOImpl.getInstance());
 
         findById();
+        setOnItemSelectedListener();
         setClickListener();
+
+        populateSpinner(UsuarioDAOImpl.getInstance());
+
 
     }
 
@@ -51,6 +60,10 @@ public class ContactsActivity extends AppCompatActivity implements View.OnClickL
         novoContatoButton.setOnClickListener(this);
     }
 
+    private void setOnItemSelectedListener(){
+        contatosSpinner.setOnItemSelectedListener(this);
+    }
+
 
     @Override
     public void onClick(View v) {
@@ -58,6 +71,7 @@ public class ContactsActivity extends AppCompatActivity implements View.OnClickL
             saveNewContato(UsuarioDAOImpl.getInstance());
         }
     }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -100,4 +114,31 @@ public class ContactsActivity extends AppCompatActivity implements View.OnClickL
         return null;
     }
 
+    private void populateSpinner(UsuarioDAO uDAO){
+        Bundle bundle = getIntent().getExtras();
+        String user = bundle.getString("user");
+
+        ContactsSpinnerAdapter adapter = new ContactsSpinnerAdapter(this, android.R.layout.simple_spinner_item, uDAO.findByUsername(user).findAll());
+        contatosSpinner.setAdapter(adapter);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+        showContactsDetails((Contato) contatosSpinner.getItemAtPosition(position));
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+        nomeContatoTextView.setVisibility(View.GONE);
+        telefoneTextView.setVisibility(View.GONE);
+    }
+
+    private void showContactsDetails (Contato contato){
+        nomeContatoTextView.setVisibility(View.VISIBLE);
+        telefoneTextView.setVisibility(View.VISIBLE);
+        nomeContatoTextView.setText(contato.getNome());
+        telefoneTextView.setText(contato.getTelefone());
+    }
 }

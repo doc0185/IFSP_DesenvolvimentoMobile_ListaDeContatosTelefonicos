@@ -44,4 +44,8 @@ public class Usuario {
         }
         return dados;
     }
+
+    public List<Contato> findAll(){
+        return contatos;
+    }
 }
