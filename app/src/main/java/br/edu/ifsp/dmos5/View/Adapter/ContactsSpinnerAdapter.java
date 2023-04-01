@@ -25,9 +25,11 @@ public class ContactsSpinnerAdapter extends ArrayAdapter<Contato> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         TextView textView = new TextView(getContext());
         textView.setTextColor(Color.BLACK);
-
-
-        textView.setText(getItem(position).getApelido());
+        if (getItem(position) == null){
+            textView.setText("");
+        } else{
+            textView.setText(getItem(position).getApelido());
+        }
 
         return textView;
     }
@@ -36,8 +38,12 @@ public class ContactsSpinnerAdapter extends ArrayAdapter<Contato> {
     public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         TextView textView = new TextView(getContext());
         textView.setTextColor(Color.BLACK);
+        if (getItem(position)==null){
+            textView.setText("");
+        } else{
+            textView.setText(getItem(position).getApelido());
+        }
 
-        textView.setText(getItem(position).getApelido());
 
         textView.setPadding(8, 8, 8, 8);
         return textView;

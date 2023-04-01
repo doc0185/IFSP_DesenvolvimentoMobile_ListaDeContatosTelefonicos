@@ -49,6 +49,15 @@ public class ContactsActivity extends AppCompatActivity implements AdapterView.O
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        contatosSpinner.setSelection(0);
+        populateSpinner(UsuarioDAOImpl.getInstance());
+        setOnItemSelectedListener();
+
+    }
+
     private void findById(){
         contatosSpinner = findViewById(R.id.spinner_contatosC);
         nomeContatoTextView = findViewById(R.id.textview_nomeContatoC);
@@ -117,15 +126,25 @@ public class ContactsActivity extends AppCompatActivity implements AdapterView.O
     private void populateSpinner(UsuarioDAO uDAO){
         Bundle bundle = getIntent().getExtras();
         String user = bundle.getString("user");
+        List<Contato> dataset = uDAO.findByUsername(user).findAll();
+        dataset.add(0, null);
 
-        ContactsSpinnerAdapter adapter = new ContactsSpinnerAdapter(this, android.R.layout.simple_spinner_item, uDAO.findByUsername(user).findAll());
+        ContactsSpinnerAdapter adapter = new ContactsSpinnerAdapter(this, android.R.layout.simple_spinner_item, dataset);
         contatosSpinner.setAdapter(adapter);
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-        showContactsDetails((Contato) contatosSpinner.getItemAtPosition(position));
+        if(position==0){
+            nomeContatoTextView.setText("");
+            telefoneTextView.setText("");
+        } else{
+            showContactsDetails((Contato) contatosSpinner.getItemAtPosition(position));
+        }
+
+
+        //nomeContatoTextView.setText(((Contato) contatosSpinner.getItemAtPosition(position)).getNome());
 
     }
 

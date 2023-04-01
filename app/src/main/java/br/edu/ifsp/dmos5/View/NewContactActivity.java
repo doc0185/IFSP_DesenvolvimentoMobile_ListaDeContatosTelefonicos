@@ -70,7 +70,7 @@ public class NewContactActivity extends AppCompatActivity implements View.OnClic
             uDAO.addContato(uDAO.findByUsername(user), contato);
 
             Toast.makeText(this, R.string.contactSaved, Toast.LENGTH_LONG).show();
-            Log.d("msg", uDAO.findByUsername(user).getContato());
+            //Log.d("msg", uDAO.findByUsername(user).getContato());
         }
     }
 }

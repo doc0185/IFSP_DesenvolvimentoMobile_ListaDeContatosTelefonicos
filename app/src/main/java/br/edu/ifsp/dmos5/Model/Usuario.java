@@ -36,11 +36,14 @@ public class Usuario {
 
     public String getContato(){
         String dados = null;
+        int i = 0;
         for (Contato contato : contatos){
-            contato.getApelido();
-            contato.getNome();
-            contato.getTelefone();
-            dados +=  ' ' + contato.getApelido() + ' ' + contato.getNome() + ' ' + contato.getTelefone() + ' ';
+            if (i==0){
+                dados =  ' ' + contato.getApelido() + ' ' + contato.getNome() + ' ' + contato.getTelefone() + ' ';
+            } else{
+                dados +=  ' ' + contato.getApelido() + ' ' + contato.getNome() + ' ' + contato.getTelefone() + ' ';
+            }
+            i++;
         }
         return dados;
     }
