@@ -79,6 +79,7 @@ public class NewContactActivity extends AppCompatActivity implements View.OnClic
 
             if(uDAO.addContato(uDAO.findByUsername(user), contato) == 1){
                 Toast.makeText(this, R.string.contactSaved, Toast.LENGTH_LONG).show();
+                finish();
             } else{
                 Toast.makeText(this, R.string.nicknameAlreadySaved, Toast.LENGTH_LONG).show();
             }
