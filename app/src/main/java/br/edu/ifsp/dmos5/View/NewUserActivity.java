@@ -82,9 +82,6 @@ public class NewUserActivity extends AppCompatActivity implements View.OnClickLi
             return;
         }
 
-        Log.d("myTag", username);
-        Log.d("myTag", passw);
-        Log.d("myTag", passwC);
 
         if (!passw.equals(passwC)){
             Toast.makeText(this, R.string.passwNotEqual, Toast.LENGTH_LONG).show();
@@ -102,14 +99,7 @@ public class NewUserActivity extends AppCompatActivity implements View.OnClickLi
             } catch (NoSuchAlgorithmException e) {
                 Toast.makeText(this, R.string.NoSuchAlgorithmException, Toast.LENGTH_SHORT).show();
             }
-            /*
-            user = new Usuario(username, passw);
-            if (uDAO.addUsuario(user) == 1){
-                Toast.makeText(this, R.string.userCreated, Toast.LENGTH_LONG).show();
-                finish();
-            } else{
-                Toast.makeText(this, R.string.userAlreadyCreated, Toast.LENGTH_LONG).show();
-            }*/
+
         }
     }
 

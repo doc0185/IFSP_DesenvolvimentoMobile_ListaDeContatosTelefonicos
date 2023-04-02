@@ -61,18 +61,12 @@ public class NewContactActivity extends AppCompatActivity implements View.OnClic
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            /*
-             * Usar o método finish() finaliza a acticity, contudo, não é a forma correta
-             * de navegar entre as activities de nosso aplicativo. Futuramente iremos
-             * entender melhor sobre navegação entre activities e também o ciclo de vida
-             * de uma activity.
-             */
             finish();
         }
         return super.onOptionsItemSelected(item);
     }
 
-    public void saveNewContact(UsuarioDAOImpl uDAO){
+    private void saveNewContact(UsuarioDAOImpl uDAO){
         Contato contato;
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
@@ -88,15 +82,7 @@ public class NewContactActivity extends AppCompatActivity implements View.OnClic
             } else{
                 Toast.makeText(this, R.string.nicknameAlreadySaved, Toast.LENGTH_LONG).show();
             }
-            /*
-            if(uDAO.addContato(uDAO.findByUsername(user), contato) == 0){
-                Toast.makeText(this, R.string.nicknameAlreadySaved, Toast.LENGTH_LONG).show();
-            } else{
-                Toast.makeText(this, R.string.contactSaved, Toast.LENGTH_LONG).show();
-            } */
 
-
-            Log.d("msg", uDAO.findByUsername(user).getContato());
         }
     }
 }

@@ -45,7 +45,6 @@ public class ContactsSpinnerAdapter extends ArrayAdapter<Contato> {
         }
 
 
-        //textView.setPadding(8, 8, 8, 8);
         return textView;
     }
 }

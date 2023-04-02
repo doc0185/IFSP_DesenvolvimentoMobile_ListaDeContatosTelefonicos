@@ -84,14 +84,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } catch (NoSuchAlgorithmException e) {
             Toast.makeText(this, R.string.NoSuchAlgorithmException, Toast.LENGTH_SHORT).show();
         }
-        /*
-        Bundle bundle = new Bundle();
-        bundle.putString("user", user);
-        bundle.putString("passw", passw);
 
-        Intent intent = new Intent(this, ContactsActivity.class);
-        intent.putExtras(bundle);
-        startActivity(intent);*/
     }
 
     private void openNewUser(){

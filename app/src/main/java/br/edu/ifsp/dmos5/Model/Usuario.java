@@ -10,7 +10,8 @@ public class Usuario {
     private List<Contato> contatos;
 
     public Usuario(String username, String senha){
-        contatos = new ArrayList<>();
+        this.contatos = new ArrayList<>();
+        this.contatos.add(null);
         this.username = username;
         this.senha = senha;
     }

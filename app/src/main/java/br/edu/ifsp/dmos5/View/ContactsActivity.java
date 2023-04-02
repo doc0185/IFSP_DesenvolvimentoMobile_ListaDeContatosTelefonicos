@@ -85,18 +85,12 @@ public class ContactsActivity extends AppCompatActivity implements AdapterView.O
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            /*
-             * Usar o método finish() finaliza a acticity, contudo, não é a forma correta
-             * de navegar entre as activities de nosso aplicativo. Futuramente iremos
-             * entender melhor sobre navegação entre activities e também o ciclo de vida
-             * de uma activity.
-             */
             finish();
         }
         return super.onOptionsItemSelected(item);
     }
 
-    public void saveNewContato(UsuarioDAOImpl uDAO){
+    private void saveNewContato(UsuarioDAOImpl uDAO){
         Bundle bundle = getIntent().getExtras();
         String user = bundle.getString("user");
 
@@ -126,21 +120,22 @@ public class ContactsActivity extends AppCompatActivity implements AdapterView.O
     private void populateSpinner(UsuarioDAOImpl uDAO){
         Bundle bundle = getIntent().getExtras();
         String user = bundle.getString("user");
-        List<Contato> dataset = uDAO.findByUsername(user).findAll();
-        dataset.add(0, null);
 
-        ContactsSpinnerAdapter adapter = new ContactsSpinnerAdapter(this, android.R.layout.simple_spinner_item, dataset);
+
+
+        ContactsSpinnerAdapter adapter = new ContactsSpinnerAdapter(this, android.R.layout.simple_spinner_item,  uDAO.findByUsername(user).findAll());
         contatosSpinner.setAdapter(adapter);
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        Contato c = (Contato) contatosSpinner.getItemAtPosition(position);
 
-        if(position==0 || position==1){
+        if(c!=null){
+            showContactsDetails(c);
+        } else{
             nomeContatoTextView.setText("");
             telefoneTextView.setText("");
-        } else{
-            showContactsDetails((Contato) contatosSpinner.getItemAtPosition(position));
         }
 
     }
