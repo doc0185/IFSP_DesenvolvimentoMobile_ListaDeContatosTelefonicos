@@ -20,4 +20,5 @@
     <string name="contactSaved">Contato salvo com Sucesso!</string>
     <string name="nicknameAlreadySaved">Usuário já possui Contato com esse Apelido</string>
     <string name="NoSuchAlgorithmException">NoSuchAlgorithmException</string>
+    <string name="nome_contato">Nome Contato</string>
 </resources>
