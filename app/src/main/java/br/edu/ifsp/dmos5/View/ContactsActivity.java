@@ -136,15 +136,12 @@ public class ContactsActivity extends AppCompatActivity implements AdapterView.O
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-        if(position==0){
+        if(position==0 || position==1){
             nomeContatoTextView.setText("");
             telefoneTextView.setText("");
         } else{
             showContactsDetails((Contato) contatosSpinner.getItemAtPosition(position));
         }
-
-
-        //nomeContatoTextView.setText(((Contato) contatosSpinner.getItemAtPosition(position)).getNome());
 
     }
 

@@ -11,8 +11,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.security.NoSuchAlgorithmException;
+
 import br.edu.ifsp.dmos5.DAO.UsuarioDAO;
 import br.edu.ifsp.dmos5.DAO.UsuarioDAOImpl;
+import br.edu.ifsp.dmos5.Model.MD5;
 import br.edu.ifsp.dmos5.Model.Usuario;
 import br.edu.ifsp.dmos5.R;
 
@@ -86,14 +89,27 @@ public class NewUserActivity extends AppCompatActivity implements View.OnClickLi
         if (!passw.equals(passwC)){
             Toast.makeText(this, R.string.passwNotEqual, Toast.LENGTH_LONG).show();
         } else{
+            try{
+                String passwMD5 = MD5.getHashMd5(passw);
+                user = new Usuario(username, passwMD5);
+                if (uDAO.addUsuario(user) == 1){
+                    Toast.makeText(this, R.string.userCreated, Toast.LENGTH_LONG).show();
+                    finish();
+                } else{
+                    Toast.makeText(this, R.string.userAlreadyCreated, Toast.LENGTH_LONG).show();
+                }
 
+            } catch (NoSuchAlgorithmException e) {
+                Toast.makeText(this, R.string.NoSuchAlgorithmException, Toast.LENGTH_SHORT).show();
+            }
+            /*
             user = new Usuario(username, passw);
             if (uDAO.addUsuario(user) == 1){
                 Toast.makeText(this, R.string.userCreated, Toast.LENGTH_LONG).show();
                 finish();
             } else{
                 Toast.makeText(this, R.string.userAlreadyCreated, Toast.LENGTH_LONG).show();
-            }
+            }*/
         }
     }
 

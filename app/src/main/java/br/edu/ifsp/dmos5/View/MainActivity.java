@@ -9,7 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.security.NoSuchAlgorithmException;
+
 import br.edu.ifsp.dmos5.DAO.UsuarioDAOImpl;
+import br.edu.ifsp.dmos5.Model.MD5;
 import br.edu.ifsp.dmos5.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -69,13 +72,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
+        try{
+            String passwMD5 = MD5.getHashMd5(passw);
+            Bundle bundle = new Bundle();
+            bundle.putString("user", user);
+            bundle.putString("passw", passwMD5);
+
+            Intent intent = new Intent(this, ContactsActivity.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        } catch (NoSuchAlgorithmException e) {
+            Toast.makeText(this, R.string.NoSuchAlgorithmException, Toast.LENGTH_SHORT).show();
+        }
+        /*
         Bundle bundle = new Bundle();
         bundle.putString("user", user);
         bundle.putString("passw", passw);
 
         Intent intent = new Intent(this, ContactsActivity.class);
         intent.putExtras(bundle);
-        startActivity(intent);
+        startActivity(intent);*/
     }
 
     private void openNewUser(){
