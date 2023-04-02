@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,12 +13,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.List;
-
-import br.edu.ifsp.dmos5.DAO.UsuarioDAO;
 import br.edu.ifsp.dmos5.DAO.UsuarioDAOImpl;
 import br.edu.ifsp.dmos5.Model.Contato;
-import br.edu.ifsp.dmos5.Model.Usuario;
 import br.edu.ifsp.dmos5.R;
 import br.edu.ifsp.dmos5.View.Adapter.ContactsSpinnerAdapter;
 
@@ -102,7 +97,7 @@ public class ContactsActivity extends AppCompatActivity implements AdapterView.O
         startActivity(intent);
     }
 
-    private Usuario checkPassw(UsuarioDAOImpl uDAO){
+    private void checkPassw(UsuarioDAOImpl uDAO){
         Bundle bundle = getIntent().getExtras();
         if (bundle != null){
             String user = bundle.getString("user");
@@ -112,9 +107,8 @@ public class ContactsActivity extends AppCompatActivity implements AdapterView.O
                 Toast.makeText(this, R.string.userNotFound, Toast.LENGTH_LONG).show();
                 finish();
             }
-            return uDAO.checkUserPassw(user, passw);
+            uDAO.checkUserPassw(user, passw);
         }
-        return null;
     }
 
     private void populateSpinner(UsuarioDAOImpl uDAO){

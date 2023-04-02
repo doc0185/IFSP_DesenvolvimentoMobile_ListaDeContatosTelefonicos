@@ -20,17 +20,11 @@ public class Usuario {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
 
     public String getSenha() {
         return senha;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
 
     public int addContato(Contato contato){
 
@@ -51,17 +45,6 @@ public class Usuario {
     }
 
 
-    public String getContato(){
-        String dados = null;
-        int i = 0;
-        for (Contato contato : contatos){
-            if(contato != null){
-                dados +=  ' ' + contato.getApelido() + ' ' + contato.getNome() + ' ' + contato.getTelefone() + ' ';
-            }
-
-        }
-        return dados;
-    }
 
     public List<Contato> findAll(){
         return contatos;
